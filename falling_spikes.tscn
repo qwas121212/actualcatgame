@@ -1,0 +1,90 @@
+[gd_scene load_steps=7 format=3 uid="uid://b8a01suymgwiq"]
+
+[ext_resource type="Script" path="res://falling_spikes.gd" id="1_5xede"]
+[ext_resource type="Texture2D" uid="uid://cwqlc8dimhqlc" path="res://spikes ni move.png" id="1_kiayy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_87qgo"]
+size = Vector2(69, 272)
+
+[sub_resource type="Animation" id="Animation_mimnp"]
+resource_name = "fallingspikes"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(250, 110), Vector2(247, 110), Vector2(249, 110), Vector2(245, 110)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fall"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_cd34m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(250, 110)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_utyc6"]
+_data = {
+"RESET": SubResource("Animation_cd34m"),
+"fallingspikes": SubResource("Animation_mimnp")
+}
+
+[node name="FallingSpikes" type="Node2D"]
+script = ExtResource("1_5xede")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(250, 110)
+rotation = 3.14159
+texture = ExtResource("1_kiayy")
+
+[node name="hitbox" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="hitbox"]
+position = Vector2(-3, 0)
+polygon = PackedVector2Array(223, 83, 272, 83, 273, 111, 274, 112, 279, 116, 271, 133, 260, 117, 266, 111, 266, 84, 250, 84, 251, 111, 258, 118, 248, 133, 238, 117, 244, 110, 244, 84, 229, 84, 229, 112, 235, 117, 227, 131, 226, 133, 216, 117, 222, 111)
+
+[node name="plauerdetection" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plauerdetection"]
+position = Vector2(244, 209)
+shape = SubResource("RectangleShape2D_87qgo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_utyc6")
+}
+autoplay = "fallingspikes"
+
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_entered" from="plauerdetection" to="." method="_on_plauerdetection_body_entered"]
