@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cnb1jxsi6gdr3"]
+[gd_scene load_steps=31 format=3 uid="uid://cnb1jxsi6gdr3"]
 
 [ext_resource type="Script" path="res://Game Manager.gd" id="1_6kusp"]
 [ext_resource type="Texture2D" uid="uid://0susr6bh0jl6" path="res://heart.png" id="2_fttb2"]
@@ -8,14 +8,15 @@
 [ext_resource type="Script" path="res://physics/water detection 2d.gd" id="6_h2qhv"]
 [ext_resource type="Texture2D" uid="uid://dqsbg8sskeid6" path="res://Water+.png" id="7_0n2nk"]
 [ext_resource type="PackedScene" uid="uid://rhdnte10h5yi" path="res://checkpoint.tscn" id="8_ky1ef"]
-[ext_resource type="Texture2D" uid="uid://k2wvenn1h825" path="res://tileset.png" id="8_tmfgh"]
-[ext_resource type="Texture2D" uid="uid://bwb8neaxymse1" path="res://tileset2.png" id="9_kukvy"]
+[ext_resource type="Texture2D" uid="uid://k2wvenn1h825" path="res://tilesets/tileset.png" id="8_tmfgh"]
+[ext_resource type="Texture2D" uid="uid://bwb8neaxymse1" path="res://tilesets/tileset2.png" id="9_kukvy"]
 [ext_resource type="PackedScene" uid="uid://dgmhsiqxbwgtd" path="res://collectable_powerup.tscn" id="10_hp76b"]
 [ext_resource type="PackedScene" uid="uid://dvfhp5oyfldmn" path="res://actual_enemy.tscn" id="11_ahrk6"]
 [ext_resource type="PackedScene" uid="uid://crjqngj0hi88r" path="res://cavetransition.tscn" id="11_qdsi8"]
 [ext_resource type="Texture2D" uid="uid://xifpwqo8ceyl" path="res://Jellyfish Sprite Sheet.png" id="13_s1brh"]
 [ext_resource type="PackedScene" uid="uid://h0etr1wc07dd" path="res://actionable.tscn" id="14_uqjjv"]
 [ext_resource type="Resource" uid="uid://dgord767qpfsc" path="res://dialogues/main.dialogue" id="15_mfq6s"]
+[ext_resource type="PackedScene" uid="uid://k7vsjgs5lddr" path="res://obstacles/rotatingblades.tscn" id="17_lvhdn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p41sf"]
 size = Vector2(37, 41)
@@ -1309,7 +1310,7 @@ texture = ExtResource("3_fhmgp")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("4_dpx0p")]
 z_index = 3
-position = Vector2(30, -24)
+position = Vector2(38, -35)
 script = ExtResource("5_qrgf2")
 
 [node name="water detection 2d" type="Area2D" parent="CharacterBody2D"]
@@ -1319,7 +1320,7 @@ collision_mask = 2
 script = ExtResource("6_h2qhv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/water detection 2d"]
-position = Vector2(139, 197)
+position = Vector2(138, 196)
 shape = SubResource("RectangleShape2D_p41sf")
 
 [node name="Timer" type="Timer" parent="CharacterBody2D"]
@@ -1335,7 +1336,7 @@ layer_0/tile_data = PackedInt32Array(1, 65541, 2, 65537, 65541, 2, 131073, 65541
 
 [node name="checkpoint" parent="." instance=ExtResource("8_ky1ef")]
 z_index = 2
-position = Vector2(636, 873)
+position = Vector2(404, 485)
 target_level = ExtResource("11_qdsi8")
 
 [node name="collectables" type="Node" parent="."]
@@ -1383,6 +1384,7 @@ visible = false
 position = Vector2(635, 111)
 
 [node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
+z_index = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D2"]
 texture_filter = 1
@@ -1403,6 +1405,10 @@ dialogue_resource = ExtResource("15_mfq6s")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D2/Actionable"]
 position = Vector2(279, 163)
 shape = SubResource("CircleShape2D_01tim")
+
+[node name="rotatingblades" parent="." instance=ExtResource("17_lvhdn")]
+z_index = 2
+position = Vector2(-227, -15)
 
 [connection signal="body_entered" from="CharacterBody2D/water detection 2d" to="CharacterBody2D/water detection 2d" method="_on_body_entered"]
 [connection signal="body_exited" from="CharacterBody2D/water detection 2d" to="CharacterBody2D/water detection 2d" method="_on_body_exited"]

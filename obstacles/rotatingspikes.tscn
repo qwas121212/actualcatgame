@@ -1,0 +1,115 @@
+[gd_scene load_steps=7 format=3 uid="uid://0hy7w2eoeopv"]
+
+[ext_resource type="Texture2D" uid="uid://bqm25egx1lw43" path="res://stillspiek.png" id="1_ayrav"]
+[ext_resource type="Script" path="res://rotatingspikes.gd" id="1_t4evv"]
+
+[sub_resource type="Animation" id="Animation_txw3r"]
+resource_name = "rrrrrr"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(326, 169), Vector2(400, 169), Vector2(326, 169)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.5708, 3.14159, 4.71239, 3.14159, 1.5708, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Area2D/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(326, 168), Vector2(400, 168), Vector2(326, 168)]
+}
+
+[sub_resource type="Animation" id="Animation_svtua"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(326, 169)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Area2D/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(326, 168)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d4vnm"]
+_data = {
+"RESET": SubResource("Animation_svtua"),
+"rrrrrr": SubResource("Animation_txw3r")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bdhcc"]
+radius = 33.0151
+
+[node name="rotatingspikes" type="Node2D"]
+script = ExtResource("1_t4evv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_d4vnm")
+}
+autoplay = "rrrrrr"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(326, 168)
+shape = SubResource("CircleShape2D_bdhcc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(326, 169)
+scale = Vector2(2.0625, 2.09375)
+texture = ExtResource("1_ayrav")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

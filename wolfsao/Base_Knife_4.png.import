@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqt5ggn17ho3w"
-path="res://.godot/imported/BatStandard_Flying.png-2de5c05355d94bdf7dcbf6a17616324b.ctex"
+uid="uid://hpkw1ibkteyw"
+path="res://.godot/imported/Base_Knife_4.png-fbed32ad6b5a08acb9b9d54f588a45f2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://BatStandard_Flying.png"
-dest_files=["res://.godot/imported/BatStandard_Flying.png-2de5c05355d94bdf7dcbf6a17616324b.ctex"]
+source_file="res://wolfsao/Base_Knife_4.png"
+dest_files=["res://.godot/imported/Base_Knife_4.png-fbed32ad6b5a08acb9b9d54f588a45f2.ctex"]
 
 [params]
 

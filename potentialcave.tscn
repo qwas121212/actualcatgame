@@ -11,8 +11,8 @@
 [ext_resource type="Script" path="res://Area2D.gd" id="7_ocrpn"]
 [ext_resource type="PackedScene" uid="uid://dgmhsiqxbwgtd" path="res://collectable_powerup.tscn" id="9_0w3ad"]
 [ext_resource type="PackedScene" uid="uid://dvfhp5oyfldmn" path="res://actual_enemy.tscn" id="10_8v1jf"]
-[ext_resource type="PackedScene" uid="uid://b8a01suymgwiq" path="res://falling_spikes.tscn" id="12_pqlb2"]
-[ext_resource type="PackedScene" uid="uid://kmgh28sjqjny" path="res://spikes.tscn" id="13_0qniy"]
+[ext_resource type="PackedScene" uid="uid://b8a01suymgwiq" path="res://obstacles/falling_spikes.tscn" id="12_iaqpk"]
+[ext_resource type="PackedScene" uid="uid://kmgh28sjqjny" path="res://obstacles/spikes.tscn" id="13_0qniy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5qp0o"]
 texture = ExtResource("4_lwqhf")
@@ -734,7 +734,7 @@ collision_mask = 2
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="batcollide"]
 polygon = PackedVector2Array(17, 548, 519, 545, 659, 326, 769, 265, 888, 262, 1278, 238, 1408, 329, 1411, 329, 1268, 315, 1266, 388, 1299, 436, 1404, 448, 1470, 493, 1589, 521, 1670, 455, 1682, 288, 1739, 105, 1851, 108, 1932, 141, 1915, 298, 2020, 317, 2108, 329, 2112, 469, 2196, 474, 2210, 386, 2277, 345, 2346, 345, 2403, 329, 2467, 115, 2450, -68, 2286, -149, 1725, -166, 17, -97, -19, 165, 3, 479, -321, 521, -247, -200, 621, -372, 2061, -409, 2717, -132, 2615, 581, 2239, 988, 440, 841, -256, 804, -309, 629, -241, 550, -7, 502)
 
-[node name="FallingSpikes" parent="." instance=ExtResource("12_pqlb2")]
+[node name="FallingSpikes" parent="." instance=ExtResource("12_iaqpk")]
 position = Vector2(66, -52)
 
 [node name="spikes" parent="." instance=ExtResource("13_0qniy")]

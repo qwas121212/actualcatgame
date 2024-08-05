@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://actuadrowning.gd" id="1_q1f5v"]
 [ext_resource type="PackedScene" uid="uid://dktypc5uga7c8" path="res://drowning.tscn" id="2_l608m"]
-[ext_resource type="Texture2D" uid="uid://dy5krnk534l4k" path="res://backgrouindqw.png" id="3_7hdp5"]
+[ext_resource type="Texture2D" uid="uid://dy5krnk534l4k" path="res://pngs/backgrouindqw.png" id="3_7hdp5"]
 [ext_resource type="Texture2D" uid="uid://dqsbg8sskeid6" path="res://Water+.png" id="4_d1t2f"]
-[ext_resource type="Texture2D" uid="uid://bwb8neaxymse1" path="res://tileset2.png" id="5_1ju6q"]
-[ext_resource type="Texture2D" uid="uid://k2wvenn1h825" path="res://tileset.png" id="6_tf0qi"]
+[ext_resource type="Texture2D" uid="uid://bwb8neaxymse1" path="res://tilesets/tileset2.png" id="5_1ju6q"]
+[ext_resource type="Texture2D" uid="uid://k2wvenn1h825" path="res://tilesets/tileset.png" id="6_tf0qi"]
 [ext_resource type="Texture2D" uid="uid://dcbwu4gwg5ia6" path="res://Jump (32x32).png" id="7_178r5"]
 
 [sub_resource type="Animation" id="Animation_ssmum"]

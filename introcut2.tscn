@@ -1,10 +1,10 @@
 [gd_scene load_steps=14 format=3 uid="uid://dwaai8iu81r6j"]
 
 [ext_resource type="Script" path="res://introcut2.gd" id="1_8q16i"]
-[ext_resource type="Texture2D" uid="uid://dy5krnk534l4k" path="res://backgrouindqw.png" id="1_kcoer"]
+[ext_resource type="Texture2D" uid="uid://dy5krnk534l4k" path="res://pngs/backgrouindqw.png" id="1_kcoer"]
 [ext_resource type="PackedScene" uid="uid://dktypc5uga7c8" path="res://drowning.tscn" id="2_7a6l7"]
 [ext_resource type="Texture2D" uid="uid://dqsbg8sskeid6" path="res://Water+.png" id="2_siyam"]
-[ext_resource type="Texture2D" uid="uid://bwb8neaxymse1" path="res://tileset2.png" id="3_udvff"]
+[ext_resource type="Texture2D" uid="uid://bwb8neaxymse1" path="res://tilesets/tileset2.png" id="3_udvff"]
 [ext_resource type="Texture2D" uid="uid://dcbwu4gwg5ia6" path="res://Jump (32x32).png" id="4_chm7v"]
 [ext_resource type="FontFile" uid="uid://djthsxe50xxkr" path="res://Minecraft.ttf" id="5_vaelg"]
 

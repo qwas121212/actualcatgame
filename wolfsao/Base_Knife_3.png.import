@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dy5krnk534l4k"
-path="res://.godot/imported/backgrouindqw.png-3b8753e68b927b597c7238ff99ddce8e.ctex"
+uid="uid://b55jfmia6g1kq"
+path="res://.godot/imported/Base_Knife_3.png-cbec38b29643a362af62d488021f3e75.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://backgrouindqw.png"
-dest_files=["res://.godot/imported/backgrouindqw.png-3b8753e68b927b597c7238ff99ddce8e.ctex"]
+source_file="res://wolfsao/Base_Knife_3.png"
+dest_files=["res://.godot/imported/Base_Knife_3.png-cbec38b29643a362af62d488021f3e75.ctex"]
 
 [params]
 

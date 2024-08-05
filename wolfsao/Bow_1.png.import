@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://k2wvenn1h825"
-path="res://.godot/imported/tileset.png-a39e944f25b35d62f55d4f98a36e2b5e.ctex"
+uid="uid://frqhmxhey6x8"
+path="res://.godot/imported/Bow_1.png-81b54e936ebf4f57f2f12972f241ad79.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tileset.png"
-dest_files=["res://.godot/imported/tileset.png-a39e944f25b35d62f55d4f98a36e2b5e.ctex"]
+source_file="res://wolfsao/Bow_1.png"
+dest_files=["res://.godot/imported/Bow_1.png-81b54e936ebf4f57f2f12972f241ad79.ctex"]
 
 [params]
 

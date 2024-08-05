@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://MainMenu.gd" id="1_1d2lh"]
 [ext_resource type="Texture2D" uid="uid://3fjxsnfajld2" path="res://Pink.png" id="2_xs6lp"]
-[ext_resource type="Texture2D" uid="uid://c8e10nmojfe10" path="res://cat.png" id="3_xcc5p"]
+[ext_resource type="Texture2D" uid="uid://c8e10nmojfe10" path="res://pngs/cat.png" id="3_xcc5p"]
 
 [node name="MainMenu" type="Node"]
 script = ExtResource("1_1d2lh")

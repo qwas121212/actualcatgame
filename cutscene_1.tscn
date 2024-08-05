@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://cutscene1.gd" id="1_xweey"]
 [ext_resource type="PackedScene" uid="uid://bwo0xt3hqne27" path="res://intro.tscn" id="2_afkpc"]
-[ext_resource type="Texture2D" uid="uid://dg3ds6scon2sj" path="res://2024_08_02_0xf_Kleki.png" id="3_jfqix"]
+[ext_resource type="Texture2D" uid="uid://dg3ds6scon2sj" path="res://pngs/2024_08_02_0xf_Kleki.png" id="3_jfqix"]
 [ext_resource type="FontFile" uid="uid://djthsxe50xxkr" path="res://Minecraft.ttf" id="4_o0j4j"]
 
 [sub_resource type="Animation" id="Animation_7l0jt"]
