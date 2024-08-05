@@ -2,11 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://dms3soyul4g8m" path="res://sky.png" id="4_r75fr"]
 [ext_resource type="Texture2D" uid="uid://bh7bp3nwe5xl7" path="res://glacial_mountains.png" id="5_3nq4i"]
+[ext_resource type="Resource" uid="uid://dwk8543hajoar" path="res://Resources/Tome.tres" id="6_6i4e3"]
 [ext_resource type="PackedScene" uid="uid://cypu66hrqqkex" path="res://maincharacter.tscn" id="6_52m1n"]
 [ext_resource type="Texture2D" uid="uid://k2wvenn1h825" path="res://tilesets/tileset.png" id="6_g83an"]
 [ext_resource type="Texture2D" uid="uid://dx18vvrus13lc" path="res://clouds_mg_1_lightened.png" id="6_yhgyt"]
 [ext_resource type="Texture2D" uid="uid://dqsbg8sskeid6" path="res://Water+.png" id="7_j30fl"]
-[ext_resource type="Script" path="res://maincharacter.gd" id="7_jyfca"]
 [ext_resource type="Texture2D" uid="uid://cgrqnh3si3f5x" path="res://cloud_lonely.png" id="7_nqy1q"]
 [ext_resource type="Script" path="res://physics/water detection 2d.gd" id="7_scq7q"]
 [ext_resource type="Script" path="res://checkpoint.gd" id="9_dx8h3"]
@@ -1224,19 +1224,20 @@ scale = Vector2(2.91667, 2.87037)
 texture = ExtResource("7_nqy1q")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("6_52m1n")]
-position = Vector2(-58, 387)
-script = ExtResource("7_jyfca")
+position = Vector2(195, 543)
+current_item = ExtResource("6_6i4e3")
 
 [node name="Timer" type="Timer" parent="CharacterBody2D"]
 wait_time = 3.0
 
 [node name="water detection 2d" type="Area2D" parent="CharacterBody2D"]
+position = Vector2(2, 7)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("7_scq7q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/water detection 2d"]
-position = Vector2(139, 197)
+position = Vector2(164, 180)
 shape = SubResource("RectangleShape2D_sy3yp")
 
 [node name="TileMap" type="TileMap" parent="."]
