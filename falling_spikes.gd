@@ -17,6 +17,8 @@ func _on_plauerdetection_body_entered(body):
 func _on_hitbox_body_entered(body):
 	if (body.name == "CharacterBody2D"):
 		animation_player.play("fallingspikes")
+	else:
+		animation_player.play("still")
 
 func fall():
 	current_speed = speed

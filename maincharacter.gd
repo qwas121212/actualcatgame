@@ -22,12 +22,18 @@ var is_in_water : bool = false
 @export var current_item : Item:
 	set(value):
 		current_item = value
+		if current_item != null:
+			if current_item.animation in ["sword"]:
+				set_damage(current_item.damage)
+			else:
+				set_damage(1)
 
 @onready var actionable_finder = $Direction/ActionableFinder
 @onready var timer = $Timer
 @export var SWIM_GRAVITY_FACTOR : float = 0.25
 @export var SWIM_VELOCITY_CAP : float  = 80
 @export var SWIM_JUMP : float = -200
+@export var projectile_node : PackedScene
 
 var counter : int = 1
 var can_move : bool = true:
@@ -173,6 +179,18 @@ func play_animation():
 func _on_animation_finished(anim_name):
 	can_move = true
 	
+func set_damage(amount):
+	$Hitbox.damage = amount
+func shoot_projectile():
+	var projectile = projectile_node.instantiate()
+	projectile.position = position
+	projectile.set_direction($Sprite2D.flip_h, current_item.projectile)
+	projectile.damage = current_item.damage
+	get_tree().current_scene.add_child(projectile)
+
 func reset():
 	get_tree().reload_current_scene()
 	
+
+func _on_hitbox_body_entered(body):
+	pass # Replace with function body.

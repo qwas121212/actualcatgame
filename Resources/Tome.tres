@@ -11,4 +11,4 @@ texture = ExtResource("3_mxr1a")
 damage = 0.0
 icon = ExtResource("1_gknf3")
 animation = "tome"
-projectile = 0
+projectile = 3

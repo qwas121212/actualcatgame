@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@export var damage_node : PackedScene
+
 @onready var game_manager = %GameManager
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
@@ -30,6 +32,7 @@ func _on_area_2d_body_entered(body):
 	if (body.name == "CharacterBody2D"):
 		print("decrease player health")
 		game_manager.decrease_health()
+		
 
 func _on_timer_timeout():
 	$Timer.wait_time = choose([0.5, 0.8])
@@ -48,3 +51,17 @@ func handle_animation():
 func choose(array):
 	array.shuffle()
 	return array.front()
+
+var bathealth = 3
+	
+func take_damage(amount):
+	var damage = damage_node.instantiate()
+	damage.find_child("Label").text = str(amount)
+	damage.position = position
+	get_tree().current_scene.add_child(damage)
+	print(amount)
+	if damage >= 1:
+		bathealth -= 1
+	if bathealth == 0:
+		queue_free()
+	

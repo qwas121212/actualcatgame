@@ -2823,7 +2823,7 @@ distance = -39.0
 [node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("hearts")]
 unique_name_in_owner = true
 script = ExtResource("1_p54pk")
-hearts = [NodePath(""), NodePath(""), NodePath("")]
+hearts = [null, null, null]
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
@@ -2891,7 +2891,7 @@ position = Vector2(324, -179)
 [node name="enemies" type="Node" parent="."]
 
 [node name="enemy" parent="enemies" instance=ExtResource("10_8v1jf")]
-position = Vector2(264, 13)
+position = Vector2(274, 79)
 
 [node name="enemy2" parent="enemies" instance=ExtResource("10_8v1jf")]
 position = Vector2(1362, 48)
@@ -2900,7 +2900,6 @@ position = Vector2(1362, 48)
 position = Vector2(635, 111)
 
 [node name="batcollide" type="Area2D" parent="."]
-visible = false
 collision_layer = 2
 collision_mask = 2
 

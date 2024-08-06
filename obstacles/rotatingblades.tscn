@@ -68,7 +68,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r5rud"]
-size = Vector2(113, 30)
+size = Vector2(113, 14)
 
 [node name="rotatingblades" type="Node2D"]
 script = ExtResource("1_r2yrr")
@@ -80,13 +80,13 @@ scale = Vector2(4.625, 5.625)
 sprite_frames = SubResource("SpriteFrames_olymk")
 animation = &"fan"
 autoplay = "fan"
-frame_progress = 0.521691
+frame_progress = 0.525424
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(269, 157)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(173.5, 129)
+position = Vector2(173.5, 121)
 shape = SubResource("RectangleShape2D_r5rud")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://ybdaxmkrxbd7"]
+
+[ext_resource type="Script" path="res://projectile.gd" id="1_35i3n"]
+[ext_resource type="Texture2D" uid="uid://b7w1ebmorj3rq" path="res://wolfsao/Projectiles.png" id="2_5mc6h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qblnt"]
+
+[node name="projectile" type="Area2D"]
+script = ExtResource("1_35i3n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_5mc6h")
+hframes = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qblnt")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
