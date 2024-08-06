@@ -1,7 +1,8 @@
-[gd_scene load_steps=30 format=3 uid="uid://cnb1jxsi6gdr3"]
+[gd_scene load_steps=31 format=3 uid="uid://cnb1jxsi6gdr3"]
 
 [ext_resource type="Script" path="res://Game Manager.gd" id="1_6kusp"]
-[ext_resource type="Texture2D" uid="uid://0susr6bh0jl6" path="res://heart.png" id="2_fttb2"]
+[ext_resource type="FontFile" uid="uid://djthsxe50xxkr" path="res://Minecraft.ttf" id="2_wv4q7"]
+[ext_resource type="Texture2D" uid="uid://d3ls5xhsa6sxr" path="res://777.png" id="3_ay2ai"]
 [ext_resource type="Texture2D" uid="uid://dms3soyul4g8m" path="res://sky.png" id="3_fhmgp"]
 [ext_resource type="PackedScene" uid="uid://cypu66hrqqkex" path="res://maincharacter.tscn" id="4_dpx0p"]
 [ext_resource type="Script" path="res://physics/water detection 2d.gd" id="6_h2qhv"]
@@ -1240,6 +1241,7 @@ hearts = [NodePath("../CanvasLayer/hearts/HBoxContainer/TextureRect"), NodePath(
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
+self_modulate = Color(1, 1, 1, 0)
 offset_top = 30.0
 offset_right = 166.0
 offset_bottom = 98.0
@@ -1253,24 +1255,28 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -31.0
+offset_left = -58.0
 offset_top = -24.0
-offset_right = 36.0
+offset_right = 96.0
 offset_bottom = 31.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_wv4q7")
+theme_override_font_sizes/font_size = 30
 text = "points: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="hearts" type="Panel" parent="CanvasLayer"]
+self_modulate = Color(1, 1, 1, 0)
 offset_left = 948.0
-offset_top = 41.0
+offset_top = 22.0
 offset_right = 1150.0
-offset_bottom = 112.0
+offset_bottom = 103.0
 size_flags_horizontal = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/hearts"]
+self_modulate = Color(1, 1, 1, 0)
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
@@ -1286,25 +1292,25 @@ metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/hearts/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("2_fttb2")
+texture = ExtResource("3_ay2ai")
 expand_mode = 2
 
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer/hearts/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("2_fttb2")
+texture = ExtResource("3_ay2ai")
 expand_mode = 2
 
 [node name="TextureRect3" type="TextureRect" parent="CanvasLayer/hearts/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("2_fttb2")
+texture = ExtResource("3_ay2ai")
 expand_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
-offset_left = -616.0
-offset_top = -517.0
-offset_right = 2990.0
-offset_bottom = 1164.0
+offset_left = -614.0
+offset_top = -529.0
+offset_right = 2992.0
+offset_bottom = 1152.0
 texture = ExtResource("3_fhmgp")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("4_dpx0p")]

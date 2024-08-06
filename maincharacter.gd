@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 var SPEED = 300.0
-const JUMP_VELOCITY = -300.0
+const JUMP_VELOCITY = -400.0
 const JUMP_VELOCITY_HIGHER = -500.0
 const DASH_VELOCITY = 3000.0
 #jump count
@@ -124,6 +124,8 @@ func _physics_process(delta):
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			
+		if Input.is_action_just_pressed("reset"):
+			reset()
 	move_and_slide()
 	
 	if velocity.x < 0:
@@ -170,4 +172,7 @@ func play_animation():
 
 func _on_animation_finished(anim_name):
 	can_move = true
+	
+func reset():
+	get_tree().reload_current_scene()
 	

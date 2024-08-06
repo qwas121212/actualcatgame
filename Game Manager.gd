@@ -15,6 +15,7 @@ func decrease_health():
 			hearts[h].hide()
 	if (lives == 0):
 		get_tree().reload_current_scene()
+	
 
 func add_point():
 	points += 1
