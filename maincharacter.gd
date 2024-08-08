@@ -14,11 +14,9 @@ var max_dashes = 1
 
 #water
 var is_in_water : bool = false
-
 @onready var weapon = $weapon
 @onready var weaponfx = $weaponfx
 @onready var animation = $AnimationPlayer
-
 @export var current_item : Item:
 	set(value):
 		current_item = value
@@ -81,7 +79,7 @@ func _physics_process(delta):
 		
 		if not is_on_floor():
 			velocity.y += gravity * delta
-			animation.play("idle")
+			animation.play("jump")
 		
 		if is_on_floor():
 			jump_count = 0
@@ -114,7 +112,7 @@ func _physics_process(delta):
 		#jump in water
 		if Input.is_action_just_pressed("up") and is_in_water == true:
 			velocity.y = SWIM_JUMP
-			animation.play("idle")
+			animation.play("jump")
 		
 		
 	#travelling down in water
@@ -143,7 +141,7 @@ func _physics_process(delta):
 
 #timer for dash cooldown
 func _on_timer_timeout():
-	print_debug("time ")
+	print_debug("time")
 	dash_count = 0
 
 
@@ -157,7 +155,7 @@ func _input(event):
 		play_animation()
 
 func combo(animation):
-	if animation in ["sword", 'fist']:
+	if animation in ["sword"]:
 		return "_" + str(counter)
 	else:
 		return ""
@@ -165,13 +163,9 @@ func combo(animation):
 func play_animation():
 	can_move = false
 	time = 0.4
-	if current_item == null:
-		animation.play("fist" + combo("fist"))
-	else:
-		$weapon.texture = current_item.texture
-		weaponfx.play(current_item.animation + combo(current_item.animation))
-		animation.play(current_item.animation + combo(current_item.animation))
-		
+	$weapon.texture = current_item.texture
+	weaponfx.play(current_item.animation + combo(current_item.animation))
+	animation.play(current_item.animation + combo(current_item.animation))
 	counter += 1 
 	if counter > 3:
 		counter = 1
@@ -181,6 +175,7 @@ func _on_animation_finished(anim_name):
 	
 func set_damage(amount):
 	$Hitbox.damage = amount
+	
 func shoot_projectile():
 	var projectile = projectile_node.instantiate()
 	projectile.position = position
@@ -192,5 +187,3 @@ func reset():
 	get_tree().reload_current_scene()
 	
 
-func _on_hitbox_body_entered(body):
-	pass # Replace with function body.

@@ -1,7 +1,22 @@
 extends CharacterBody2D
 
+@onready var projectile = $"."
+@onready var weapon = $weapon
+@onready var animation = $AnimationPlayer
 @export var damage_node : PackedScene
+var health = 15
 
+
+func take_damage(amount):
+	var damage = damage_node.instantiate()
+	damage.find_child("Label").text = str(amount)
+	damage.position = position
+	get_tree().current_scene.add_child(damage)
+	health -= (amount)
+	print(health)
+	if health == 0:
+		queue_free()
+	
 @onready var game_manager = %GameManager
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
@@ -52,16 +67,7 @@ func choose(array):
 	array.shuffle()
 	return array.front()
 
-var bathealth = 3
 	
-func take_damage(amount):
-	var damage = damage_node.instantiate()
-	damage.find_child("Label").text = str(amount)
-	damage.position = position
-	get_tree().current_scene.add_child(damage)
-	print(amount)
-	if damage >= 1:
-		bathealth -= 1
-	if bathealth == 0:
-		queue_free()
-	
+
+
+

@@ -1,9 +1,9 @@
-[gd_scene load_steps=29 format=3 uid="uid://bwo0xt3hqne27"]
+[gd_scene load_steps=33 format=3 uid="uid://bwo0xt3hqne27"]
 
 [ext_resource type="Texture2D" uid="uid://dms3soyul4g8m" path="res://sky.png" id="4_r75fr"]
 [ext_resource type="Texture2D" uid="uid://bh7bp3nwe5xl7" path="res://glacial_mountains.png" id="5_3nq4i"]
+[ext_resource type="Resource" uid="uid://blsy2n7v8h88b" path="res://Resources/Soldiers Sword.tres" id="6_8i18p"]
 [ext_resource type="PackedScene" uid="uid://cypu66hrqqkex" path="res://maincharacter.tscn" id="6_52m1n"]
-[ext_resource type="Resource" uid="uid://b5ak06v65khkb" path="res://Resources/Bow.tres" id="6_arm5m"]
 [ext_resource type="Texture2D" uid="uid://k2wvenn1h825" path="res://tilesets/tileset.png" id="6_g83an"]
 [ext_resource type="Texture2D" uid="uid://dx18vvrus13lc" path="res://clouds_mg_1_lightened.png" id="6_yhgyt"]
 [ext_resource type="PackedScene" uid="uid://ybdaxmkrxbd7" path="res://projectile.tscn" id="7_f36ja"]
@@ -22,6 +22,10 @@
 [ext_resource type="PackedScene" uid="uid://da1eh0xwl1bdf" path="res://obstacles/swingingspikes.tscn" id="20_4pmf7"]
 [ext_resource type="PackedScene" uid="uid://dgmhsiqxbwgtd" path="res://collectable_powerup.tscn" id="21_g3uax"]
 [ext_resource type="Script" path="res://Game Manager.gd" id="21_prsud"]
+[ext_resource type="PackedScene" uid="uid://b8a01suymgwiq" path="res://obstacles/falling_spikes.tscn" id="23_ije54"]
+[ext_resource type="PackedScene" uid="uid://phtqotmeg2w5" path="res://floatingtext.tscn" id="24_4qve7"]
+[ext_resource type="PackedScene" uid="uid://dngcfcpwbfah7" path="res://jumppad.tscn" id="24_5pshm"]
+[ext_resource type="PackedScene" uid="uid://dvfhp5oyfldmn" path="res://actual_enemy.tscn" id="25_qhcv0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sy3yp"]
 size = Vector2(37, 41)
@@ -1236,11 +1240,11 @@ texture = ExtResource("7_nqy1q")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("6_52m1n")]
 position = Vector2(-454, 542)
-current_item = ExtResource("6_arm5m")
+current_item = ExtResource("6_8i18p")
 projectile_node = ExtResource("7_f36ja")
 
 [node name="Timer" type="Timer" parent="CharacterBody2D"]
-wait_time = 3.0
+wait_time = 2.0
 
 [node name="water detection 2d" type="Area2D" parent="CharacterBody2D"]
 position = Vector2(2, 7)
@@ -1424,6 +1428,25 @@ position = Vector2(456, 234)
 
 [node name="collectable_powerup9" parent="." instance=ExtResource("21_g3uax")]
 position = Vector2(1251, 310)
+
+[node name="FallingSpikes" parent="." instance=ExtResource("23_ije54")]
+
+[node name="jumppad" parent="." instance=ExtResource("24_5pshm")]
+position = Vector2(-718, 313)
+scale = Vector2(2, 2)
+
+[node name="jumppad2" parent="." instance=ExtResource("24_5pshm")]
+position = Vector2(566, 314)
+scale = Vector2(2, 2)
+
+[node name="CharacterBody2D2" parent="." instance=ExtResource("25_qhcv0")]
+z_index = 3
+position = Vector2(-198, 271)
+scale = Vector2(3, 3)
+
+[node name="floatingtext" parent="CharacterBody2D2" instance=ExtResource("24_4qve7")]
+position = Vector2(265, -99.6667)
+scale = Vector2(0.333333, 0.333333)
 
 [connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]
 [connection signal="body_entered" from="CharacterBody2D/water detection 2d" to="CharacterBody2D/water detection 2d" method="_on_body_entered"]

@@ -1,120 +1,199 @@
-[gd_scene load_steps=17 format=3 uid="uid://cqij75ijcp2o4"]
+[gd_scene load_steps=8 format=3 uid="uid://cqij75ijcp2o4"]
 
 [ext_resource type="Script" path="res://enemy.gd" id="1_tluk2"]
-[ext_resource type="Texture2D" uid="uid://bdod4sbdxxo2t" path="res://Idle (32x32).png" id="2_5eeoh"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x2qnx"]
-atlas = ExtResource("2_5eeoh")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nkf8q"]
-atlas = ExtResource("2_5eeoh")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f0xc3"]
-atlas = ExtResource("2_5eeoh")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sb6uy"]
-atlas = ExtResource("2_5eeoh")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_86svc"]
-atlas = ExtResource("2_5eeoh")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d8yst"]
-atlas = ExtResource("2_5eeoh")
-region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nv4jd"]
-atlas = ExtResource("2_5eeoh")
-region = Rect2(192, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1ltjb"]
-atlas = ExtResource("2_5eeoh")
-region = Rect2(224, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nmsos"]
-atlas = ExtResource("2_5eeoh")
-region = Rect2(256, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sly31"]
-atlas = ExtResource("2_5eeoh")
-region = Rect2(288, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7y1vn"]
-atlas = ExtResource("2_5eeoh")
-region = Rect2(320, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_wxblb"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x2qnx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nkf8q")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f0xc3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sb6uy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_86svc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d8yst")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nv4jd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1ltjb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nmsos")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sly31")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7y1vn")
-}],
-"loop": true,
-"name": &"default_enemy",
-"speed": 5.0
-}]
+[ext_resource type="Texture2D" uid="uid://xifpwqo8ceyl" path="res://Jellyfish Sprite Sheet.png" id="2_a48ow"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hh0hs"]
-size = Vector2(70.5, 89.5)
+size = Vector2(72.25, 79.3636)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q0a22"]
 size = Vector2(90.25, 105)
 
-[node name="RigidBody2D" type="RigidBody2D"]
+[sub_resource type="Animation" id="Animation_s7hli"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:vframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(37, 48)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Area2D/CollisionShape2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(26, 41)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CollisionShape2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(42, 63)]
+}
+
+[sub_resource type="Animation" id="Animation_ed0vw"]
+resource_name = "walk"
+length = 2.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:vframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 3, 2, 1, 0, 1, 2, 3, 4]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(37, 48), Vector2(143.846, 55), Vector2(215.077, 43), Vector2(357.539, 43), Vector2(500, 55), Vector2(400.786, 43), Vector2(301.572, 55), Vector2(202.357, 43), Vector2(103.143, 46)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Area2D/CollisionShape2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(26, 41), Vector2(133, 49), Vector2(202, 39), Vector2(345, 34), Vector2(488, 53), Vector2(391, 36), Vector2(294, 48), Vector2(193.5, 45.375), Vector2(93, 42.75)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CollisionShape2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(42, 63), Vector2(146, 68), Vector2(217, 58), Vector2(360, 53), Vector2(504, 71), Vector2(405.875, 58), Vector2(306.636, 63.6818), Vector2(207.398, 63.4261), Vector2(108.159, 63.1705)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fllm2"]
+_data = {
+"RESET": SubResource("Animation_s7hli"),
+"walk": SubResource("Animation_ed0vw")
+}
+
+[node name="enemy" type="CharacterBody2D"]
 script = ExtResource("1_tluk2")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(42, 48)
-scale = Vector2(3.625, 4)
-sprite_frames = SubResource("SpriteFrames_wxblb")
-animation = &"default_enemy"
-autoplay = "default_enemy"
-frame_progress = 0.148237
+position = Vector2(37, 48)
+scale = Vector2(5.76786, 5.8625)
+texture = ExtResource("2_a48ow")
+hframes = 7
+vframes = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(42, 64)
+position = Vector2(42, 63)
 shape = SubResource("RectangleShape2D_hh0hs")
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(14, 19)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(26.875, 43)
+position = Vector2(26, 41)
 shape = SubResource("RectangleShape2D_q0a22")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fllm2")
+}
+autoplay = "walk"
+speed_scale = -1.105
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

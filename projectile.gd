@@ -1,11 +1,12 @@
 extends Area2D
 
-@onready var game_manager = %GameManager
+
+
 
 var direction : Vector2 = Vector2.RIGHT
 var damage : float = 1
 
-func set_direction(flip_direction, frame):
+func set_direction(flip_direction,frame):
 	$Sprite2D.flip_h = flip_direction
 	$Sprite2D.frame = frame
 	if flip_direction == false:

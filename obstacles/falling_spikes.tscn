@@ -100,7 +100,7 @@ shape = SubResource("RectangleShape2D_87qgo")
 libraries = {
 "": SubResource("AnimationLibrary_utyc6")
 }
-autoplay = "still"
+autoplay = "RESET"
 
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_entered" from="plauerdetection" to="." method="_on_plauerdetection_body_entered"]

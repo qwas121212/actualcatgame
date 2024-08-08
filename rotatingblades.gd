@@ -1,7 +1,7 @@
 extends Node2D
 @onready var game_manager = %GameManager
 @onready var character_body_2d = $"../CharacterBody2D"
-
+@onready var animation = $AnimationPlayer
 
 
 
